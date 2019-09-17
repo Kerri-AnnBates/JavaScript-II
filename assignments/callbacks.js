@@ -69,7 +69,13 @@ console.log(testSumNums);
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x * y);
 }
+
+const testMultiplyNums = multiplyNums(5, 10, (total) => {
+  return total;
+});
+console.log(testMultiplyNums);
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
