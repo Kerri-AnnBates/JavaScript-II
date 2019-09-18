@@ -59,7 +59,8 @@ console.log(testLast);
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
-  return cb(x + y);
+  const result = x + y;
+  return cb(result);
 }
 
 const testSumNums = sumNums(5, 10, (total) => {
@@ -69,7 +70,8 @@ console.log(testSumNums);
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
-  return cb(x * y);
+  const result = x * y;
+  return cb(result);
 }
 
 const testMultiplyNums = multiplyNums(5, 10, (total) => {
@@ -94,4 +96,15 @@ function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  let newArr = []
+  array.forEach((item) => {
+    if(!newArr.includes(item)) {
+      newArr.push(item)
+    }
+  });
+  return cb(newArr);
 }
+const removeDups = removeDuplicates(items, (newArr) => {
+  return newArr;
+})
+console.log(removeDups);
